@@ -29,9 +29,7 @@ class Board
   end
 
   def has_winner
-    if @moves < 5
-      false
-    else
+    if @moves >= 5
       @winner = eval_board
     end
   end
@@ -46,11 +44,9 @@ class Board
 
   private
   def available_spaces
-    avail = []
-    @squares.each do |k,square|
-      avail << square if square.available?
+    @squares.values.select do |square|
+      square if square.available?
     end
-    avail
   end
 
   def eval_board

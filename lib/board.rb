@@ -1,4 +1,3 @@
-require 'pry'
 class Board
   attr_accessor :squares, :moves, :player_presence
   attr_reader :winner

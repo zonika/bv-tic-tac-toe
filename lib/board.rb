@@ -83,13 +83,17 @@ class Board
   end
 
   def diagonal_win?(spots)
-    row = spots.sort
-    row.each do |place|
-      # 1 5 9 diagonal
-      return true if place%3 == 1 && row.include?(place+4) && row.include?(place+8)
-      # 3 5 7 diagonal
-      return true if place%3 == 0 && row.include?(place+2) && row.include?(place+4)
-    end
+    if spots.include?(5)
+      row = spots.sort
+      row.each do |place|
+        if place%3 == 1 && row.include?(place+8)
+          return true
+        elsif place%3 == 0 && row.include?(place+4)
+          return true
+        end
+      end
+    else
     false
+    end
   end
 end

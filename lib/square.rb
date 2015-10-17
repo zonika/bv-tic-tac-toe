@@ -1,5 +1,5 @@
 class Square
-  attr_accessor :value, :spot
+  attr_accessor :value
   def initialize(val)
     @value = val
   end
